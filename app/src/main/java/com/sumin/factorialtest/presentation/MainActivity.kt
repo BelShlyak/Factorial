@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.sumin.factorialtest.FactorialApp
+import com.sumin.factorialtest.R
 import com.sumin.factorialtest.databinding.ActivityMainBinding
 import com.sumin.factorialtest.di.ViewModelFactory
 import kotlinx.coroutines.launch
@@ -21,10 +22,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     @Inject
-    lateinit var viewmodelFactory: ViewModelFactory
+    lateinit var viewModelFactory: ViewModelFactory
 
     private val viewModel: FactorialViewModel by lazy {
-        ViewModelProvider(this, viewmodelFactory)[FactorialViewModel::class]
+        ViewModelProvider(this, viewModelFactory)[FactorialViewModel::class]
     }
 
     private val component by lazy {
@@ -50,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         if (input.isEmpty()) {
             Toast.makeText(
                 this,
-                "Enter the number",
+                getString(R.string.enter_the_number),
                 Toast.LENGTH_SHORT
             ).show()
             return true
@@ -62,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         if (value == null) {
             Toast.makeText(
                 this,
-                "Incorrect or too large number has been entered",
+                getString(R.string.incorrect_or_too_large_number_has_been_entered),
                 Toast.LENGTH_SHORT
             ).show()
         }
@@ -89,7 +90,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 Toast.makeText(
                     this,
-                    "Factorial calculation error",
+                    getString(R.string.factorial_calculation_error),
                     Toast.LENGTH_SHORT
                 ).show()
             }

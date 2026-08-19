@@ -2,4 +2,8 @@
     <string name="app_name">Factorial Test</string>
     <string name="calculate">Calculate</string>
     <string name="number_hint">Enter a non-negative integer</string>
+    <string name="incorrect_or_too_large_number_has_been_entered">Incorrect or too large number has been entered</string>
+    <string name="factorial_calculation_error">Factorial calculation error</string>
+    <string name="enter_the_number">Enter the number</string>
+    <string name="factorial_is_not_defined_for_negative_numbers">Factorial is not defined for negative numbers</string>
 </resources>
