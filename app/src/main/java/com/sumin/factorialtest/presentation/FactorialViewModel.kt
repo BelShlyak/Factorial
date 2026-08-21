@@ -3,6 +3,7 @@ package com.sumin.factorialtest.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sumin.factorialtest.domain.FactorialCalculationUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,7 +14,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
+@HiltViewModel
 class FactorialViewModel @Inject constructor(
     private val factorialCalculationUseCase: FactorialCalculationUseCase
 ) : ViewModel() {
