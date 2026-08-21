@@ -8,30 +8,21 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.sumin.factorialtest.FactorialApp
 import com.sumin.factorialtest.R
 import com.sumin.factorialtest.databinding.ActivityMainBinding
-import com.sumin.factorialtest.di.ViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelFactory
-
-    private val viewModel: FactorialViewModel by viewModels { viewModelFactory }
-
-    private val component by lazy {
-        (application as FactorialApp).component
-    }
+    private val viewModel: FactorialViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        component.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         observeState()

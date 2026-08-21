@@ -1,14 +1,7 @@
 package com.sumin.factorialtest
 
 import android.app.Application
-import com.sumin.factorialtest.di.DaggerApplicationComponent
+import dagger.hilt.android.HiltAndroidApp
 
-class FactorialApp : Application() {
-
-    val component by lazy {
-        DaggerApplicationComponent.factory()
-            .create(
-                this
-            )
-    }
-}
+@HiltAndroidApp
+class FactorialApp : Application()
