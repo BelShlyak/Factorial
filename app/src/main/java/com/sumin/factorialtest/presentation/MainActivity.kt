@@ -2,10 +2,10 @@ package com.sumin.factorialtest.presentation
 
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.sumin.factorialtest.FactorialApp
@@ -24,9 +24,7 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    private val viewModel: FactorialViewModel by lazy {
-        ViewModelProvider(this, viewModelFactory)[FactorialViewModel::class]
-    }
+    private val viewModel: FactorialViewModel by viewModels { viewModelFactory }
 
     private val component by lazy {
         (application as FactorialApp).component
